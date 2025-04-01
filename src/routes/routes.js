@@ -26,8 +26,8 @@ router.post("/api/create", async (req, res) => {
 
     console.log("data: ", data);
     try {
-        const event = await newEvent.save(data)
-        console.log("Event", event)
+        const event = await newEvent.save(data);
+        console.log("Event", event);
 
         return res.status(200).send(event)
     } catch (error) {
