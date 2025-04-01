@@ -8,4 +8,8 @@ router.get("/", (req, res) => {
     return res.status(200).send("Home route")
 })
 
+router.post("/api/update", (req, res) => {
+    
+})
+
 export default router;
