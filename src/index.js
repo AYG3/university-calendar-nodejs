@@ -1,5 +1,7 @@
 import express from 'express'
 import router from './routes/routes.js'
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 
@@ -9,7 +11,7 @@ app.use(router);
 
 const PORT = 3000;
 
-const 
+mongouri(`mongodb+srv://gilbertayoku3:${process.env.db_password}@cluster0.tgicb.mongodb.net/`)
 
 app.listen(PORT, () => {
     console.log("App listening on PORT: ", PORT)
