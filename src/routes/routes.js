@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import Event from '../mongoose/EventModel'
+import Event from '../mongoose/EventModel.js'
 
 const router = Router()
 
@@ -16,13 +16,15 @@ router.post("/api/create", async (req, res) => {
         category
     } = req.body
 
-    const newEvent = new EventModel()
+    const newEvent = new Event();
 
     const data = {
         title,
         date,
         category
     }
+
+    console.log("data: ", data);
     try {
         const event = await newEvent.save(data)
         console.log("Event", event)
