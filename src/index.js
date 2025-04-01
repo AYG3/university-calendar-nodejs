@@ -8,5 +8,6 @@ app.use(router);
 const PORT = 3000;
 
 app.listen(PORT, () => {
-    console.log("APP LISTENING ON PORT: ", PORT)
+    console.log("App listening on PORT: ", PORT)
 })
+
