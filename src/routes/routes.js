@@ -3,12 +3,21 @@ import Event from '../mongoose/EventModel.js'
 
 const router = Router()
 
-router.get("/", (req, res) => {
-    console.log("Get route")
+//get event
+router.get("/api/get", async (req, res) => {
 
+    try {
+        const findUser = await Event.find();
+        if(findUser.isEmpty()) return res.status(404).send("No event")
+        
+        return res.status(200).send(findUser)
+    } catch (error) {
+        
+    }
     return res.status(200).send("Home route")
 })
 
+//create event
 router.post("/api/create", async (req, res) => {
     const { title, date, category } = req.body;
 
