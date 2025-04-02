@@ -44,18 +44,23 @@ router.post("/api/create", async (req, res) => {
     }
 })
 
+//update event
 router.put("api/update", async(req, res) => {
-    const { body: {title, date, category} } = req
+    const { body: {id, title, date, category} } = req
 
     const newData = {
-        title,
-        ...updatedEvent
+        title: "Updated title",
+        // ...updatedEvent
     }
 
     try {
-        const updateEvent = await Event.findByIdAndUpdate(id, { updatedEvent }, { new: true });
-    } catch (error) {
+        const updateEvent = await Event.findByIdAndUpdate(id, { newData }, { new: true });
+        if(!updateEvent) return res.status(404).send({err_msg: "Event not updated"});
         
+        return res.status(200).send({event: `Event updated: ${updateEvent}`});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({ err_msg: error });
     }
 })
 
