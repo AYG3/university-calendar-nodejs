@@ -47,7 +47,7 @@ router.post("/api/create", async (req, res) => {
 //update event
 router.put("/api/event/:id", async(req, res) => {
     const { params: { id } } = req;
-    const { body: { title, date, category } } = req;
+    const { body: { title, date, category, department, description } } = req;
 
     console.log(id)
 
