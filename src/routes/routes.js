@@ -14,6 +14,7 @@ router.get("/api/get", async (req, res) => {
     } catch (error) {
         console.log("Error getting Events: ", error);
     }
+    
     return res.status(200).send("Home route")
 })
 
