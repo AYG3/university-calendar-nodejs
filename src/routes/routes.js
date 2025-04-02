@@ -52,8 +52,11 @@ router.put("/api/event/:id", async(req, res) => {
     console.log(id)
 
     const newData = {
-        title: "Edited title",
-        // ...updatedEvent
+        title,
+        date,
+        category,
+        department,
+        description
     }
 
     try {
