@@ -7,12 +7,12 @@ const router = Router()
 router.get("/api/get", async (req, res) => {
 
     try {
-        const findUser = await Event.find();
-        if(findUser.isEmpty()) return res.status(404).send("No event")
+        const getEvents = await Event.find();
+        if(getEvents.isEmpty()) return res.status(404).send("No event")
         
-        return res.status(200).send(findUser)
+        return res.status(200).send({ events: getEvents})
     } catch (error) {
-        
+        console.log("Error getting Events: ", error);
     }
     return res.status(200).send("Home route")
 })
