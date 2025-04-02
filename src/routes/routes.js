@@ -8,7 +8,7 @@ router.get("/api/events", async (req, res) => {
 
     try {
         const getEvents = await Event.find();
-        if(!(getEvents == [])) return res.status(404).send("No event found")
+        if((getEvents == [])) return res.status(404).send("No event found")
         
         return res.status(200).send({ events: getEvents})
     } catch (error) {
@@ -41,6 +41,21 @@ router.post("/api/create", async (req, res) => {
     } catch (error) {
         console.log("Error: ", error);
         return res.status(500).send({err_msg: error})
+    }
+})
+
+router.put("api/update", async(req, res) => {
+    const { body: {title, date, category} } = req
+
+    const newData = {
+        title,
+        ...updatedEvent
+    }
+
+    try {
+        const updateEvent = await Event.findByIdAndUpdate(id, { updatedEvent }, { new: true });
+    } catch (error) {
+        
     }
 })
 
