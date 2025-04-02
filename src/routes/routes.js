@@ -49,8 +49,6 @@ router.put("/api/event/:id", async(req, res) => {
     const { params: { id } } = req;
     const { body: { title, date, category, department, description } } = req;
 
-    console.log(id)
-
     const newData = {
         title,
         date,
@@ -70,4 +68,6 @@ router.put("/api/event/:id", async(req, res) => {
     }
 })
 
+//delete event
+router.delete("/api/events", )
 export default router;
