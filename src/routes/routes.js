@@ -69,5 +69,16 @@ router.put("/api/event/:id", async(req, res) => {
 })
 
 //delete event
-router.delete("/api/events", )
+router.delete("/api/events/:id", async (req, res) => {
+    try {
+        const findEvent = await Event.findByIdAndDelete(id)
+        if(!findEvent) return res.status(404).send("Event not found")
+            
+        return res.status(200).send({Event_deleted: findEvent})
+        } catch (error) {
+            console.log(error)
+            return res.status(500).send({ err_msg: error });
+    }
+
+})
 export default router;
