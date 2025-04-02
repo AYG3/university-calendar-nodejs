@@ -57,7 +57,7 @@ router.put("/api/event/:id", async(req, res) => {
     }
 
     try {
-        const updateEvent = await Event.findByIdAndUpdate(id, newData, { new: true });
+        const updateEvent = await Event.findByIdAndUpdate(id, newData, { new: true, runValidators: true });
         if(!updateEvent) return res.status(404).send({err_msg: "Event not updated"});
         
         return res.status(200).send(updateEvent);
