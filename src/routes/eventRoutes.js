@@ -1,5 +1,5 @@
 import { Router } from "express";
-import Event from "../mongoose/EventModel";
+// import Event from "../mongoose/EventModel";
 
 const router = Router()
 
