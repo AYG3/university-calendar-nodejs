@@ -10,7 +10,7 @@ router.get("/api/events", async (req, res) => {
         const getEvents = await Event.find();
         if((getEvents == [])) return res.status(404).send("No event found")
         
-        return res.status(200).send({ events: getEvents})
+        return res.status(200).send(getEvents)
     } catch (error) {
         console.log("Error getting Events: ", error);
         return res.status(500).send({ err_msg: error})
