@@ -19,13 +19,14 @@ router.get("/api/events", async (req, res) => {
 
 //create event
 router.post("/api/create", async (req, res) => {
-    const { title, date, category } = req.body;
+    const { title, date, category, ...others } = req.body;
 
     if (!title || !category) {
         return res.status(400).send({ err_msg: "Missing required fields: title, or category" });
     }
 
     const newEvent = new Event({
+        ...others,
         title,
         date,
         category
