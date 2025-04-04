@@ -19,8 +19,8 @@ router.get("/api/events", async (req, res) => {
 
     if (startDate) {
         filter.date = { ...filter.date, $gte: new Date(startDate) }
+        console.log("...filter date", { ...filter.date });
     }
-    console.log("...filter date", ...filter.date);
 
     if (endDate) {
         filter.date = { ...filter.date, $lte: new Date(endDate) }
