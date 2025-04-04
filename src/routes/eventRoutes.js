@@ -5,7 +5,7 @@ const router = Router()
 
 //get event
 router.get("/api/events", async (req, res) => {
-    const { category, department, startDate, endDate, description,  } = req.query;
+    const { category, department, startDate, endDate } = req.query;
 
     const filter = {};
 
@@ -17,13 +17,6 @@ router.get("/api/events", async (req, res) => {
         filter.department = department
     }
 
-    if (description && description !== "Description") {
-        filter.description = description
-    }
-
-    if( ) {
-
-    }
     if (startDate) {
         filter.date = { ...filter.date, $gte: new Date(startDate)}
     }
