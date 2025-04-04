@@ -20,7 +20,7 @@ const EventSchema = new mongoose.Schema({
 
     department: {
         type: String,
-        enum: ["I will never be ordinary, power of God is at ", ""],
+        enum: ["General", "Computer Science", "Mathematics"],
     },
 
     description: {
