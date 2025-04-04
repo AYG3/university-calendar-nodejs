@@ -5,7 +5,14 @@ const router = Router()
 
 //get event
 router.get("/api/events", async (req, res) => {
+    const { category, department, startDate, endDate, ...others } = req.query;
 
+    const filter = {};
+
+    if ( category && category !== "Category"){
+
+    }
+    
     try {
         const getEvents = await Event.find();
         if((getEvents == [])) return res.status(404).send("No event found")
