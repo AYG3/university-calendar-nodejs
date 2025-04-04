@@ -10,9 +10,25 @@ router.get("/api/events", async (req, res) => {
     const filter = {};
 
     if ( category && category !== "Category"){
-
+        filter.category = category;
     }
     
+    if (department && department !== "Department") {
+        filter.department = department
+    }
+
+    if (description && description !== "Description") {
+        
+    }
+
+    if (startDate) {
+        filter.date = { ...filter.date, $gte: new Date(startDate)}
+    }
+
+    if (endDate) {
+        filter.date = { ...filter.date, $gte: new Date(endDate)}
+    }
+
     try {
         const getEvents = await Event.find();
         if((getEvents == [])) return res.status(404).send("No event found")
