@@ -26,10 +26,10 @@ router.post("/api/create", async (req, res) => {
     }
 
     const newEvent = new Event({
-        ...others,
         title,
         date,
-        category
+        category,
+        ...others,
     });
 
     console.log("body: ", req.body);
