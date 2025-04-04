@@ -20,7 +20,7 @@ const EventSchema = new mongoose.Schema({
 
     department: {
         type: String,
-        enum: ["General", "Computer Science", "Mathematics", "Engineering", "Business"],
+        enum: ["General", "Computer Science", "Mathematics", "Engineering", "Business"]
     },
 
     description: {
