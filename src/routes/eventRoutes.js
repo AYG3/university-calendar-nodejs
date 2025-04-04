@@ -1,5 +1,5 @@
 import { Router } from "express";
-// import Event from "../mongoose/EventModel";
+import Event from "../mongoose/EventModel.js";
 
 const router = Router()
 
@@ -81,4 +81,5 @@ router.delete("/api/events/:id", async (req, res) => {
     }
 
 })
+
 export default router;

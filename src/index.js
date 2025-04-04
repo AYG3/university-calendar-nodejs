@@ -17,12 +17,7 @@ app.use(router);
 const PORT = 3000;
 
 connectDB()
-// mongoose.connect
-// (`mongodb+srv://gilbertayoku3:${process.env.db_password}@cluster0.tgicb.mongodb.net/`)
-// // mongoose.connect(`mongodb+srv://gilbertayoku3:${process.env.db_password}@cluster0.tgicb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"`)
-// .then(() =>{
-//     console.log("Connected to mongodb")
-// });
+
 
 app.listen(PORT, () => {
     console.log("App listening on PORT: ", PORT)
