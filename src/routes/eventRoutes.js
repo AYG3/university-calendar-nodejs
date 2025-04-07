@@ -38,7 +38,7 @@ router.get("/api/events", async (req, res) => {
 })
 
 //create event
-router.post("/api/create", async (req, res) => {
+router.post("/api/events", async (req, res) => {
     const { title, date, category, ...others } = req.body;
 
     if (!title || !category) {
