@@ -40,13 +40,12 @@ router.get("/api/events", async (req, res) => {
 router.post("/api/events", async (req, res) => {
     const { title, date, category, ...others } = req.body;
 
-    if (!title || !category) {
-        return res.status(400).send({ err_msg: "Missing required fields: title, or category" });
+    if (!title || !category || !department) {
+        return res.status(400).send({ err_msg: "Missing required fields: title, or category or department" });
     }
 
     const newEvent = new Event({
         title,
-        date,
         category,
         ...others,
     });
