@@ -38,9 +38,10 @@ router.get("/api/events", async (req, res) => {
 
 //create event
 router.post("/api/events", async (req, res) => {
-    const { title, date, category, ...others } = req.body;
+    const { title, date, category, department, ...others } = req.body;
 
     if (!title || !category || !department) {
+        console.log("Missing field err: ", error);
         return res.status(400).send({ err_msg: "Missing required fields: title, or category or department" });
     }
 
